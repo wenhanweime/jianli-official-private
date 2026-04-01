@@ -22,13 +22,10 @@
       --tag-bg: #f5f5f4;
       --tag-border: #e7e5e4;
       --page-width-px: 860px;
-      --export-scale: 0.62;
-      --sheet-width: 794px;
-      --sheet-height: 1123px;
-    }
+                      }
 
     * {
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
       box-sizing: border-box;
     }
@@ -37,17 +34,9 @@
       background: var(--bg);
       font-family: 'Noto Sans SC', system-ui, sans-serif;
       color: var(--ink);
-      line-height: 1.42;
-      font-size: 12px;
+      line-height: 1.7;
+      font-size: 14px;
       -webkit-font-smoothing: antialiased;
-      padding: 12px 0;
-    }
-
-    .sheet {
-      width: var(--sheet-width);
-      height: var(--sheet-height);
-      margin: 0 auto;
-      overflow: hidden;
     }
 
     .top-bar {
@@ -56,66 +45,62 @@
     }
 
     .page {
-      width: var(--page-width-px);
-      max-width: var(--page-width-px);
-      margin: 0;
+      max-width: 860px;
+      margin: 0 auto;
       background: var(--paper);
-      min-height: 1600px;
-      zoom: var(--export-scale);
-      box-shadow: 0 14px 40px rgba(28, 25, 23, 0.14);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.07);
+      min-height: 100vh;
     }
 
     .header {
       display: grid;
       grid-template-columns: auto 1fr auto;
-      gap: 0.55rem;
+      gap: 1.5rem;
       align-items: center;
-      padding: 0.55rem 2.35rem 0.48rem;
+      padding: 2.5rem 3.2rem 2.2rem;
       border-bottom: 1px solid var(--border);
       background: linear-gradient(135deg, #fffaf8 0%, #fff7f3 100%);
     }
 
     .avatar {
-      width: 38px;
+      width: 90px;
       height: auto;
       border-radius: 3px;
       object-fit: contain;
       border: 1px solid var(--border);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
     .name {
-      font-size: 18px;
+      font-size: 34px;
       font-weight: 700;
       color: var(--ink);
-      letter-spacing: 0.03em;
-      line-height: 1;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
     }
 
     .name-en {
       font-family: 'DM Mono', monospace;
-      font-size: 7.6px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--ink-muted);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-top: 1px;
-      line-height: 1.1;
+      margin-top: 5px;
     }
 
     .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 5px;
       text-align: right;
     }
 
     .contact-item {
       font-family: 'DM Mono', monospace;
-      font-size: 8.4px;
+      font-size: 12px;
       color: var(--ink-light);
-      letter-spacing: 0.02em;
-      line-height: 1.15;
+      letter-spacing: 0.03em;
     }
 
     .contact-item a {
@@ -128,7 +113,7 @@
     }
 
     .main-col {
-      padding: 1rem 2.35rem 0 2.35rem;
+      padding: 2.4rem 3.2rem 0 3.2rem;
     }
 
     .side-col {
@@ -136,12 +121,9 @@
     }
 
     .section {
-      margin-bottom: 0.82rem;
+      margin-bottom: 2.4rem;
     }
 
-    .section.compact {
-      margin-bottom: 0.45rem;
-    }
 
     .section-title {
       font-size: 9px;
@@ -149,8 +131,8 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--accent-dark);
-      margin-bottom: 0.42rem;
-      padding-bottom: 0.15rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.45rem;
       border-bottom: 1.5px solid var(--accent-soft);
       display: flex;
       align-items: center;
@@ -167,28 +149,9 @@
       flex-shrink: 0;
     }
 
-    .section.compact .section-title {
-      margin-bottom: 0.3rem;
-      padding-bottom: 0.1rem;
-      font-size: 8.3px;
-      letter-spacing: 0.22em;
-    }
-
-    .compact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 0.7rem 1rem;
-      align-items: start;
-      margin-bottom: 0.5rem;
-    }
-
-    .compact-col .section.compact:last-child {
-      margin-bottom: 0;
-    }
-
     .job {
-      margin-bottom: 0.62rem;
-      padding-left: 0.9rem;
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
       position: relative;
     }
 
@@ -197,19 +160,19 @@
       position: absolute;
       left: 0;
       top: 0;
-      bottom: -0.65rem;
+      bottom: -2rem;
       width: 2px;
       background: var(--border);
       z-index: 0;
     }
 
     .job:first-child::before {
-      top: 8px;
+      top: 10px;
     }
 
     .job:last-child::before {
       bottom: auto;
-      height: 8px;
+      height: 10px;
     }
 
     .job:only-child::before {
@@ -226,10 +189,10 @@
     }
 
     .job-title {
-      font-size: 11.5px;
+      font-size: 14.5px;
       font-weight: 700;
       color: var(--ink);
-      line-height: 1.18;
+      line-height: 1.4;
       position: relative;
     }
 
@@ -239,8 +202,8 @@
       left: calc(-1.2rem - 5px);
       top: 50%;
       transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--accent);
       border: 2px solid var(--paper);
@@ -250,10 +213,10 @@
 
     .job-badge {
       font-family: 'DM Mono', monospace;
-      font-size: 8.1px;
+      font-size: 10px;
       background: var(--accent-soft);
       color: var(--accent-dark);
-      padding: 1px 7px;
+      padding: 2px 9px;
       border-radius: 99px;
       white-space: nowrap;
       font-weight: 500;
@@ -324,7 +287,7 @@
     .metric {
       display: inline;
       font-family: 'DM Mono', monospace;
-      font-size: 8.4px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--accent-dark);
       background: var(--accent-soft);
@@ -387,7 +350,7 @@
     .section.compact > div[style*="align-items:baseline"] strong,
     .section.compact > div[style*="align-items:baseline"] span,
     .section.compact > div[style*="align-items:baseline"] div {
-      line-height: 1.18;
+      line-height: 1.4;
     }
 
     .skill-tag {
@@ -414,7 +377,7 @@
       font-weight: 500;
       color: var(--ink-muted);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.18em;
       min-width: 30px;
       padding-top: 2px;
     }
@@ -431,13 +394,13 @@
       font-family: 'DM Mono', monospace;
       font-size: 7px;
       color: var(--ink-muted);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.18em;
       background: #fafaf9;
     }
 
     @page {
       size: A4;
-      margin: 0;
+      margin: 0 auto;
     }
 
     @media print {
@@ -449,7 +412,7 @@
       html,
       body {
         background: white;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -458,18 +421,16 @@
       .sheet {
         width: 210mm;
         height: 297mm;
-        margin: 0;
+        margin: 0 auto;
         overflow: hidden;
       }
 
       .page {
-        width: var(--page-width-px);
-        max-width: var(--page-width-px);
-        margin: 0;
+          max-width: 860px;
+        margin: 0 auto;
         min-height: auto;
         box-shadow: none;
-        zoom: var(--export-scale);
-      }
+        }
 
       .page-footer {
         background: white;
@@ -515,7 +476,6 @@
 </head>
 
 <body>
-  <div class="sheet">
     <div class="top-bar"></div>
     <div class="page">
 
@@ -795,7 +755,6 @@
 
       <footer class="page-footer">Wei Wenhan · wenhanwei.me@gmail.com · 15626475865</footer>
     </div>
-  </div>
 </body>
 
 </html>
