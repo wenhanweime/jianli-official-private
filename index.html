@@ -21,11 +21,10 @@
       --paper: #ffffff;
       --tag-bg: #f5f5f4;
       --tag-border: #e7e5e4;
-      --page-width-px: 860px;
-                      }
+    }
 
     * {
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
@@ -39,6 +38,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Top accent bar */
     .top-bar {
       height: 3px;
       background: linear-gradient(90deg, #c4622d 0%, #d97757 40%, #e8956d 100%);
@@ -52,6 +52,7 @@
       min-height: 100vh;
     }
 
+    /* ── HEADER ── */
     .header {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -65,7 +66,7 @@
     .avatar {
       width: 90px;
       height: auto;
-      border-radius: 3px;
+      border-radius: 4px;
       object-fit: contain;
       border: 1px solid var(--border);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -108,6 +109,7 @@
       text-decoration: none;
     }
 
+    /* ── LAYOUT ── */
     .body-grid {
       display: block;
     }
@@ -120,13 +122,13 @@
       padding: 0 3.2rem 3rem 3.2rem;
     }
 
+    /* ── SECTION ── */
     .section {
       margin-bottom: 2.4rem;
     }
 
-
     .section-title {
-      font-size: 9px;
+      font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
@@ -149,12 +151,14 @@
       flex-shrink: 0;
     }
 
+    /* ── JOB ENTRY ── */
     .job {
       margin-bottom: 2rem;
       padding-left: 1.2rem;
       position: relative;
     }
 
+    /* 竖线：用伪元素代替 border-left，精确控制起止 */
     .job::before {
       content: '';
       position: absolute;
@@ -166,15 +170,18 @@
       z-index: 0;
     }
 
+    /* 第一个 job：线从圆点中心开始 */
     .job:first-child::before {
       top: 10px;
     }
 
+    /* 最后一个 job：线到圆点中心结束 */
     .job:last-child::before {
       bottom: auto;
       height: 10px;
     }
 
+    /* 唯一一个 job：不画线 */
     .job:only-child::before {
       display: none;
     }
@@ -183,9 +190,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       flex-wrap: wrap;
-      gap: 4px;
+      gap: 6px;
     }
 
     .job-title {
@@ -225,29 +232,29 @@
 
     .job-date {
       font-family: 'DM Mono', monospace;
-      font-size: 8.2px;
+      font-size: 11px;
       color: var(--ink-muted);
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
 
     .job-bg {
-      font-size: 9.4px;
+      font-size: 12.5px;
       color: var(--ink-light);
-      margin-bottom: 0.32rem;
-      line-height: 1.28;
+      margin-bottom: 0.8rem;
+      line-height: 1.7;
       font-style: italic;
-      padding: 5px 7px;
+      padding: 9px 12px;
       background: #fdf8f6;
       border-radius: 8px;
       border: 1px solid #f0e8e4;
     }
 
     .sub-title {
-      font-size: 9.4px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--ink);
-      margin: 0.3rem 0 0.12rem;
+      margin: 0.85rem 0 0.4rem;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -266,12 +273,12 @@
     }
 
     .bullet-list li {
-      font-size: 9.5px;
+      font-size: 13px;
       color: var(--ink-light);
-      margin-bottom: 2px;
+      margin-bottom: 5px;
       padding-left: 1.2em;
       position: relative;
-      line-height: 1.27;
+      line-height: 1.65;
     }
 
     .bullet-list li::before {
@@ -279,7 +286,7 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 13px;
+      font-size: 18px;
       line-height: 1.1;
       font-weight: 700;
     }
@@ -287,24 +294,24 @@
     .metric {
       display: inline;
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 500;
       color: var(--accent-dark);
       background: var(--accent-soft);
-      padding: 0 3px;
+      padding: 0 5px;
       border-radius: 4px;
       border: 1px solid #f0cfc2;
     }
 
     .result-box {
-      margin-top: 0.22rem;
-      padding: 5px 8px;
+      margin-top: 0.8rem;
+      padding: 9px 14px;
       background: linear-gradient(135deg, #fdf5f1, #fef9f7);
       border: 1px solid #f0d4c8;
       border-radius: 8px;
-      font-size: 9.2px;
+      font-size: 12.5px;
       color: var(--ink-light);
-      line-height: 1.28;
+      line-height: 1.65;
     }
 
     .result-box strong {
@@ -312,26 +319,28 @@
       font-weight: 600;
     }
 
+    /* ── EDU ── */
     .edu-gpa {
       font-family: 'DM Mono', monospace;
-      font-size: 8.5px;
+      font-size: 11.5px;
       color: var(--accent-dark);
       font-weight: 500;
     }
 
     .edu-date {
       font-family: 'DM Mono', monospace;
-      font-size: 8.2px;
+      font-size: 11px;
       color: var(--ink-muted);
     }
 
+    /* ── AWARDS ── */
     .award-item {
-      font-size: 9px;
+      font-size: 12.5px;
       color: var(--ink-light);
-      margin-bottom: 1px;
+      margin-bottom: 5px;
       padding-left: 1em;
       position: relative;
-      line-height: 1.26;
+      line-height: 1.65;
     }
 
     .award-item::before {
@@ -340,100 +349,64 @@
       left: 0;
       color: var(--accent);
       font-size: 7px;
-      top: 4px;
+      top: 5px;
     }
 
-    .section.compact > div[style*="align-items:baseline"] {
-      margin-bottom: 0 !important;
-    }
-
-    .section.compact > div[style*="align-items:baseline"] strong,
-    .section.compact > div[style*="align-items:baseline"] span,
-    .section.compact > div[style*="align-items:baseline"] div {
-      line-height: 1.4;
-    }
-
+    /* ── SKILL TAGS ── */
     .skill-tag {
       display: inline-block;
-      font-size: 8.6px;
+      font-size: 11.5px;
       background: var(--tag-bg);
       color: var(--ink-light);
-      padding: 2px 7px;
+      padding: 3px 10px;
       border-radius: 99px;
-      margin: 2px 2px;
+      margin: 3px 3px;
       border: 1px solid var(--tag-border);
     }
 
+    /* ── MISC ── */
     .personal-item {
       display: flex;
       align-items: flex-start;
-      gap: 6px;
-      margin-bottom: 2px;
+      gap: 8px;
+      margin-bottom: 5px;
     }
 
     .personal-label {
       font-family: 'DM Mono', monospace;
-      font-size: 8px;
+      font-size: 10px;
       font-weight: 500;
       color: var(--ink-muted);
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      min-width: 30px;
+      letter-spacing: 0.1em;
+      min-width: 40px;
       padding-top: 2px;
     }
 
     .personal-val {
-      font-size: 9.1px;
+      font-size: 12.5px;
       color: var(--ink-light);
     }
 
     .page-footer {
       text-align: center;
-      padding: 0.5rem 0.5rem 0.7rem;
+      padding: 1.2rem;
       border-top: 1px solid var(--border);
       font-family: 'DM Mono', monospace;
-      font-size: 7px;
+      font-size: 10px;
       color: var(--ink-muted);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.1em;
       background: #fafaf9;
     }
 
-    @page {
-      size: A4;
-      margin: 0 auto;
-    }
-
     @media print {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
-
-      html,
       body {
         background: white;
-        margin: 0 auto;
-        padding: 0;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .sheet {
-        width: 210mm;
-        height: 297mm;
-        margin: 0 auto;
-        overflow: hidden;
       }
 
       .page {
-          max-width: 860px;
-        margin: 0 auto;
-        min-height: auto;
         box-shadow: none;
-        }
-
-      .page-footer {
-        background: white;
+        max-width: none;
       }
     }
 
@@ -476,9 +449,10 @@
 </head>
 
 <body>
-    <div class="top-bar"></div>
-    <div class="page">
+  <div class="top-bar"></div>
+  <div class="page">
 
+    <!-- HEADER -->
     <header class="header">
       <img class="avatar" src="avatar.png" alt="魏文翰头像">
       <div>
@@ -492,57 +466,50 @@
     </header>
 
     <div class="body-grid">
+      <!-- MAIN COLUMN -->
       <main class="main-col">
 
-        <div class="compact-grid">
-          <div class="compact-col">
-            <section class="section compact">
-              <div class="section-title">教育经历</div>
+        <!-- 教育经历 -->
+        <section class="section">
+          <div class="section-title">教育经历</div>
 
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
-                <div style="font-size:13px;color:var(--ink);"><strong>北京大学</strong> &nbsp;<span
-                    style="color:var(--ink-light);font-size:12px;">建筑与景观设计学院 · 时空智能与智慧城市</span></div>
-                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.69/4
-                    &nbsp;Top 10%</span><span class="edu-date">2018.09—2021.07</span></div>
-              </div>
-
-              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
-                <div style="font-size:13px;color:var(--ink);"><strong>苏黎世大学</strong> &nbsp;<span
-                    style="color:var(--ink-light);font-size:12px;">数学与科学学院 · 地理学 &amp; 数据科学</span></div>
-                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA
-                    5.52/6</span><span class="edu-date">2020.02—2020.08</span></div>
-              </div>
-
-              <div style="display:flex;justify-content:space-between;align-items:baseline;">
-                <div style="font-size:13px;color:var(--ink);"><strong>华南理工大学</strong> &nbsp;<span
-                    style="color:var(--ink-light);font-size:12px;">建筑学院 · 城乡规划</span></div>
-                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.73/4
-                    &nbsp;Top 10%</span><span class="edu-date">2013.09—2018.06</span></div>
-              </div>
-            </section>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
+            <div style="font-size:13px;color:var(--ink);"><strong>北京大学</strong> &nbsp;<span
+                style="color:var(--ink-light);font-size:12px;">建筑与景观设计学院 · 时空智能与智慧城市</span></div>
+            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.69/4
+                &nbsp;Top 10%</span><span class="edu-date">2018.09—2021.07</span></div>
           </div>
 
-          <div class="compact-col">
-            <section class="section compact">
-              <div class="section-title">科研与荣誉</div>
-              <div class="award-item">5 项发明专利，2 项 AI 智能体社区相关；无人机应用方向 4 项，其中 2 项已授权</div>
-              <div class="award-item">发表领域顶刊 SCI 论文 2 篇，《Cities》第一作者；《ERPH》第三作者</div>
-              <div class="award-item">北京大学「冠昊奖学金」一等奖、「科学实践创新」奖学金、国奖等 4 项奖学金</div>
-              <div class="award-item">北京大学优秀毕业生、北京大学「三好学生」、华南理工大学「三好学生」</div>
-            </section>
-
-            <section class="section compact">
-              <div class="section-title">独立开发</div>
-              <div class="award-item">独立开发 Agent KOL 产品，帮助内容创作者拥有自己的 Agent，注册用户突破 100+，项目地址 <a href="https://www.rentkoa.xyz/" target="_blank">https://www.rentkoa.xyz/</a></div>
-              <div class="award-item">独立开发 iOS 抽卡 × Chatbot 自我觉察与心理疗愈产品 Starsay</div>
-              <div class="award-item">参与 Elys、Second Me 两个 Agent 产品的增长营销，帮助两个产品累计获客超 120 人</div>
-            </section>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
+            <div style="font-size:13px;color:var(--ink);"><strong>苏黎世大学</strong> &nbsp;<span
+                style="color:var(--ink-light);font-size:12px;">数学与科学学院 · 地理学 &amp; 数据科学</span></div>
+            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA
+                5.52/6</span><span class="edu-date">2020.02—2020.08</span></div>
           </div>
-        </div>
 
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-size:13px;color:var(--ink);"><strong>华南理工大学</strong> &nbsp;<span
+                style="color:var(--ink-light);font-size:12px;">建筑学院 · 城乡规划</span></div>
+            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.73/4
+                &nbsp;Top 10%</span><span class="edu-date">2013.09—2018.06</span></div>
+          </div>
+
+        </section>
+
+        <!-- 科研与荣誉 -->
+        <section class="section">
+          <div class="section-title">科研与荣誉</div>
+          <div class="award-item">5 项发明专利，2 项 AI 智能体社区相关；无人机应用方向 4 项，其中 2 项已授权</div>
+          <div class="award-item">发表领域顶刊 SCI 论文 2 篇，《Cities》第一作者；《ERPH》第三作者</div>
+          <div class="award-item">北京大学「冠昊奖学金」一等奖、「科学实践创新」奖学金、国奖等 4 项奖学金</div>
+          <div class="award-item">北京大学优秀毕业生、北京大学「三好学生」、华南理工大学「三好学生」</div>
+        </section>
+
+        <!-- 工作经历 -->
         <section class="section">
           <div class="section-title">工作经历</div>
 
+          <!-- Job 0 - 阿里巴巴 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -554,26 +521,26 @@
               </div>
             </div>
 
-            <div class="sub-title">① 搜索结果页AI架构升级</div>
+            <div class="sub-title">① 搜索交互式AI改造</div>
             <ul class="bullet-list">
-              <li>优化 query 意图分类体系，覆盖清单、榜单、知识百科、选购攻略等多类意图场景，通过后链路设计、数据构造配合模型微调，持续提升特定场景下体验</li>
-              <li>优化泛知识意图下的内容回复策略，针对不同意图匹配差异化生成链路、内容供给、工具调用，提升搜索结果相关性与用户体验，提升搜索主动 UV</li>
-              <li>负责搜索结果页部分评测工作，并带领评测团队推进专项评测，覆盖 query、意图识别、planning、结果内容与素材质量等核心维度</li>
+              <li>负责搜索结果页（SRP）AI 内容策略优化，主导商卡标题、摘要等核心内容的 AI 生成与联动展示，提升商品信息表达力与点击转化效率。GMV累计+2%，成交笔数累计+0.8%</li>
+              <li>生成式AI商卡改造，根据端侧意图实现实时意图判断与插卡，打造更实时，更懂用户的导购体验，PCTR 3%+</li>
             </ul>
 
-            <div class="sub-title">② 搜索结果页交互式体验升级</div>
+            <div class="sub-title">② 搜索全链路AI改造</div>
             <ul class="bullet-list">
-              <li>设计实时意图判断机制，基于用户行为动态触发智能商品卡片生成，通过意图卡片帮助用户完成快速的意图转换和意图收敛，PCTR 超过同位置功能卡，LT7 持续增长</li>
-              <li>独立构建素材优化 Agent，通过对线上样本的定期学习自动迭代 Prompt，建立「数据构造 → 质量评估 → 效果反馈」的优化闭环，搜索 GMV +1%</li>
-              <li>推进 AI 生图能力在主图场景的落地，建立质量提升机制与上线标准，AI 素材个性化 GMV +1%</li>
+              <li>承担搜索 SRP 端侧产品工作，围绕信息展示效率、导购体验进行系统性优化，提升用户搜索决策效率，累计GMV+0.8%</li>
             </ul>
 
-            <div class="sub-title">③ 团队AI效能工具体系建设</div>
+            <div class="sub-title">③ AI 工具赋能与团队效率提升</div>
             <ul class="bullet-list">
-              <li>累计设计并上线 3 款内部 AI 工具，月活用户超 <span class="metric">100+</span> 人，覆盖内容生产、素材优化、prompt 优化、工单处理等产品经理核心场景</li>
+              <li>承担搜索 SRP 端侧产品工作，围绕信息展示效率、导购体验进行系统性优化，提升用户搜索决策效率，累计GMV+0.8%</li>
+              <li>持续优化团队 AI 工作流与内部效率工具，构建面向产品和运营团队的 AI 辅助能力，个人主导的 AI 产品日活 <span class="metric">40+</span>，有效提升团队协作与决策效率
+              </li>
             </ul>
           </div>
 
+          <!-- Job 1 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -581,7 +548,7 @@
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
-                <span class="job-date">2024.12 — 2025.05</span>
+                <span class="job-date">2025.02 — 2025-05</span>
               </div>
             </div>
             <div class="job-bg">美团 2025 AI 战略核心项目，打造覆盖全业务线的 Native AI 产品，旨在为每位用户提供个性化生活决策助手，整合美团全域服务能力。</div>
@@ -611,14 +578,15 @@
             </ul>
           </div>
 
+          <!-- Job 2 -->
           <div class="job">
             <div class="job-header">
               <div>
-                <div class="job-title">【外卖生成式搜索】-核心负责人</div>
+                <div class="job-title">【外卖生成式搜索】-主R</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
-                <span class="job-date">2024.10 — 2024.12</span>
+                <span class="job-date">2024.10 — 2025.03</span>
               </div>
             </div>
             <div class="job-bg">针对搜索主链路缺乏发现性和激发性的痛点，通过内容融合、生成式推荐重构用户搜索体验闭环，建立从搜前激发到结果页内容承接的全链路体系。</div>
@@ -649,10 +617,11 @@
             </div>
           </div>
 
+          <!-- Job 3 -->
           <div class="job">
             <div class="job-header">
               <div>
-                <div class="job-title">【外卖 AIGC 内容社区】-核心负责人</div>
+                <div class="job-title">【外卖 AIGC 内容社区】-主R</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
@@ -676,6 +645,7 @@
             </div>
           </div>
 
+          <!-- Job 4 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -693,6 +663,7 @@
             </ul>
           </div>
 
+          <!-- Job 5 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -703,21 +674,22 @@
                 <span class="job-date">2021.08 — 2023.07</span>
               </div>
             </div>
-            <ul class="bullet-list">
-              <li>负责无人机软硬件产品的体验优化与迭代升级，围绕地面配送协同、用户使用流程等场景持续推进功能完善和产品体验提升</li>
-            </ul>
           </div>
         </section>
 
+        <!-- 个人项目 -->
         <section class="section">
           <div class="section-title">个人项目</div>
           <ul class="bullet-list">
+            <li>参与 Second Me 黑客松，上线 KOL Agent 项目 <a href="https://www.rentkoa.xyz/"
+                target="_blank">https://www.rentkoa.xyz/</a></li>
             <li>运营滑板垂类账号，获赞 <span class="metric">170w+</span>，粉丝 <span class="metric">3w+</span>，垂类账号前 1%</li>
             <li>运营 AI 资讯类自媒体 PandorAI，小红书粉丝 <span class="metric">3k+</span>，获赞 <span class="metric">1.7w+</span></li>
             <li>AI 领域优质内容作者，少数派专栏作者、人人都是产品经理，单篇文章阅读量 <span class="metric">5w+</span></li>
           </ul>
         </section>
 
+        <!-- 技能与其他 -->
         <section class="section">
           <div class="section-title">技能与其他</div>
           <div style="display:flex;gap:2.5rem;flex-wrap:wrap;align-items:flex-start;">
@@ -750,11 +722,12 @@
 
       </main>
 
+      <!-- SIDE COLUMN -->
       <aside class="side-col" style="display:none;"></aside>
     </div>
 
-      <footer class="page-footer">Wei Wenhan · wenhanwei.me@gmail.com · 15626475865</footer>
-    </div>
+    <footer class="page-footer">Wei Wenhan · wenhanwei.me@gmail.com · 15626475865</footer>
+  </div>
 </body>
 
 </html>
