@@ -21,6 +21,10 @@
       --paper: #ffffff;
       --tag-bg: #f5f5f4;
       --tag-border: #e7e5e4;
+      --page-width-px: 860px;
+      --export-scale: 0.62;
+      --sheet-width: 794px;
+      --sheet-height: 1123px;
     }
 
     * {
@@ -33,75 +37,85 @@
       background: var(--bg);
       font-family: 'Noto Sans SC', system-ui, sans-serif;
       color: var(--ink);
-      line-height: 1.7;
-      font-size: 14px;
+      line-height: 1.42;
+      font-size: 12px;
       -webkit-font-smoothing: antialiased;
+      padding: 12px 0;
     }
 
-    /* Top accent bar */
+    .sheet {
+      width: var(--sheet-width);
+      height: var(--sheet-height);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
     .top-bar {
       height: 3px;
       background: linear-gradient(90deg, #c4622d 0%, #d97757 40%, #e8956d 100%);
     }
 
     .page {
-      max-width: 860px;
-      margin: 0 auto;
+      width: var(--page-width-px);
+      max-width: var(--page-width-px);
+      margin: 0;
       background: var(--paper);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.07);
-      min-height: 100vh;
+      min-height: 1600px;
+      zoom: var(--export-scale);
+      box-shadow: 0 14px 40px rgba(28, 25, 23, 0.14);
     }
 
-    /* ── HEADER ── */
     .header {
       display: grid;
       grid-template-columns: auto 1fr auto;
-      gap: 1.5rem;
+      gap: 0.55rem;
       align-items: center;
-      padding: 2.5rem 3.2rem 2.2rem;
+      padding: 0.55rem 2.35rem 0.48rem;
       border-bottom: 1px solid var(--border);
       background: linear-gradient(135deg, #fffaf8 0%, #fff7f3 100%);
     }
 
     .avatar {
-      width: 90px;
+      width: 38px;
       height: auto;
-      border-radius: 4px;
+      border-radius: 3px;
       object-fit: contain;
       border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
 
     .name {
-      font-size: 34px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--ink);
-      letter-spacing: 0.04em;
-      line-height: 1.1;
+      letter-spacing: 0.03em;
+      line-height: 1;
     }
 
     .name-en {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 7.6px;
       font-weight: 400;
       color: var(--ink-muted);
-      letter-spacing: 0.18em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-top: 5px;
+      margin-top: 1px;
+      line-height: 1.1;
     }
 
     .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 1px;
       text-align: right;
     }
 
     .contact-item {
       font-family: 'DM Mono', monospace;
-      font-size: 12px;
+      font-size: 8.4px;
       color: var(--ink-light);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
     }
 
     .contact-item a {
@@ -109,32 +123,34 @@
       text-decoration: none;
     }
 
-    /* ── LAYOUT ── */
     .body-grid {
       display: block;
     }
 
     .main-col {
-      padding: 2.4rem 3.2rem 0 3.2rem;
+      padding: 1rem 2.35rem 0 2.35rem;
     }
 
     .side-col {
       padding: 0 3.2rem 3rem 3.2rem;
     }
 
-    /* ── SECTION ── */
     .section {
-      margin-bottom: 2.4rem;
+      margin-bottom: 0.82rem;
+    }
+
+    .section.compact {
+      margin-bottom: 0.45rem;
     }
 
     .section-title {
-      font-size: 10.5px;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--accent-dark);
-      margin-bottom: 1.1rem;
-      padding-bottom: 0.45rem;
+      margin-bottom: 0.42rem;
+      padding-bottom: 0.15rem;
       border-bottom: 1.5px solid var(--accent-soft);
       display: flex;
       align-items: center;
@@ -151,37 +167,51 @@
       flex-shrink: 0;
     }
 
-    /* ── JOB ENTRY ── */
+    .section.compact .section-title {
+      margin-bottom: 0.3rem;
+      padding-bottom: 0.1rem;
+      font-size: 8.3px;
+      letter-spacing: 0.22em;
+    }
+
+    .compact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0.7rem 1rem;
+      align-items: start;
+      margin-bottom: 0.5rem;
+    }
+
+    .compact-col .section.compact:last-child {
+      margin-bottom: 0;
+    }
+
     .job {
-      margin-bottom: 2rem;
-      padding-left: 1.2rem;
+      margin-bottom: 0.62rem;
+      padding-left: 0.9rem;
       position: relative;
     }
 
-    /* 竖线：用伪元素代替 border-left，精确控制起止 */
     .job::before {
       content: '';
       position: absolute;
       left: 0;
       top: 0;
-      bottom: -2rem;
+      bottom: -0.65rem;
       width: 2px;
       background: var(--border);
       z-index: 0;
     }
 
-    /* 第一个 job：线从圆点中心开始 */
     .job:first-child::before {
-      top: 10px;
+      top: 8px;
     }
 
-    /* 最后一个 job：线到圆点中心结束 */
     .job:last-child::before {
       bottom: auto;
-      height: 10px;
+      height: 8px;
     }
 
-    /* 唯一一个 job：不画线 */
     .job:only-child::before {
       display: none;
     }
@@ -190,16 +220,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 4px;
     }
 
     .job-title {
-      font-size: 14.5px;
+      font-size: 11.5px;
       font-weight: 700;
       color: var(--ink);
-      line-height: 1.4;
+      line-height: 1.18;
       position: relative;
     }
 
@@ -209,8 +239,8 @@
       left: calc(-1.2rem - 5px);
       top: 50%;
       transform: translateY(-50%);
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       border: 2px solid var(--paper);
@@ -220,10 +250,10 @@
 
     .job-badge {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
+      font-size: 8.1px;
       background: var(--accent-soft);
       color: var(--accent-dark);
-      padding: 2px 9px;
+      padding: 1px 7px;
       border-radius: 99px;
       white-space: nowrap;
       font-weight: 500;
@@ -232,29 +262,29 @@
 
     .job-date {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 8.2px;
       color: var(--ink-muted);
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
 
     .job-bg {
-      font-size: 12.5px;
+      font-size: 9.4px;
       color: var(--ink-light);
-      margin-bottom: 0.8rem;
-      line-height: 1.7;
+      margin-bottom: 0.32rem;
+      line-height: 1.28;
       font-style: italic;
-      padding: 9px 12px;
+      padding: 5px 7px;
       background: #fdf8f6;
       border-radius: 8px;
       border: 1px solid #f0e8e4;
     }
 
     .sub-title {
-      font-size: 12px;
+      font-size: 9.4px;
       font-weight: 600;
       color: var(--ink);
-      margin: 0.85rem 0 0.4rem;
+      margin: 0.3rem 0 0.12rem;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -273,12 +303,12 @@
     }
 
     .bullet-list li {
-      font-size: 13px;
+      font-size: 9.5px;
       color: var(--ink-light);
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       padding-left: 1.2em;
       position: relative;
-      line-height: 1.65;
+      line-height: 1.27;
     }
 
     .bullet-list li::before {
@@ -286,7 +316,7 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 18px;
+      font-size: 13px;
       line-height: 1.1;
       font-weight: 700;
     }
@@ -294,24 +324,24 @@
     .metric {
       display: inline;
       font-family: 'DM Mono', monospace;
-      font-size: 11.5px;
+      font-size: 8.4px;
       font-weight: 500;
       color: var(--accent-dark);
       background: var(--accent-soft);
-      padding: 0 5px;
+      padding: 0 3px;
       border-radius: 4px;
       border: 1px solid #f0cfc2;
     }
 
     .result-box {
-      margin-top: 0.8rem;
-      padding: 9px 14px;
+      margin-top: 0.22rem;
+      padding: 5px 8px;
       background: linear-gradient(135deg, #fdf5f1, #fef9f7);
       border: 1px solid #f0d4c8;
       border-radius: 8px;
-      font-size: 12.5px;
+      font-size: 9.2px;
       color: var(--ink-light);
-      line-height: 1.65;
+      line-height: 1.28;
     }
 
     .result-box strong {
@@ -319,28 +349,26 @@
       font-weight: 600;
     }
 
-    /* ── EDU ── */
     .edu-gpa {
       font-family: 'DM Mono', monospace;
-      font-size: 11.5px;
+      font-size: 8.5px;
       color: var(--accent-dark);
       font-weight: 500;
     }
 
     .edu-date {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 8.2px;
       color: var(--ink-muted);
     }
 
-    /* ── AWARDS ── */
     .award-item {
-      font-size: 12.5px;
+      font-size: 9px;
       color: var(--ink-light);
-      margin-bottom: 5px;
+      margin-bottom: 1px;
       padding-left: 1em;
       position: relative;
-      line-height: 1.65;
+      line-height: 1.26;
     }
 
     .award-item::before {
@@ -349,64 +377,102 @@
       left: 0;
       color: var(--accent);
       font-size: 7px;
-      top: 5px;
+      top: 4px;
     }
 
-    /* ── SKILL TAGS ── */
+    .section.compact > div[style*="align-items:baseline"] {
+      margin-bottom: 0 !important;
+    }
+
+    .section.compact > div[style*="align-items:baseline"] strong,
+    .section.compact > div[style*="align-items:baseline"] span,
+    .section.compact > div[style*="align-items:baseline"] div {
+      line-height: 1.18;
+    }
+
     .skill-tag {
       display: inline-block;
-      font-size: 11.5px;
+      font-size: 8.6px;
       background: var(--tag-bg);
       color: var(--ink-light);
-      padding: 3px 10px;
+      padding: 2px 7px;
       border-radius: 99px;
-      margin: 3px 3px;
+      margin: 2px 2px;
       border: 1px solid var(--tag-border);
     }
 
-    /* ── MISC ── */
     .personal-item {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 5px;
+      gap: 6px;
+      margin-bottom: 2px;
     }
 
     .personal-label {
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 500;
       color: var(--ink-muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      min-width: 40px;
+      min-width: 30px;
       padding-top: 2px;
     }
 
     .personal-val {
-      font-size: 12.5px;
+      font-size: 9.1px;
       color: var(--ink-light);
     }
 
     .page-footer {
       text-align: center;
-      padding: 1.2rem;
+      padding: 0.5rem 0.5rem 0.7rem;
       border-top: 1px solid var(--border);
       font-family: 'DM Mono', monospace;
-      font-size: 10px;
+      font-size: 7px;
       color: var(--ink-muted);
       letter-spacing: 0.1em;
       background: #fafaf9;
     }
 
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
     @media print {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html,
       body {
         background: white;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        overflow: hidden;
       }
 
       .page {
+        width: var(--page-width-px);
+        max-width: var(--page-width-px);
+        margin: 0;
+        min-height: auto;
         box-shadow: none;
-        max-width: none;
+        zoom: var(--export-scale);
+      }
+
+      .page-footer {
+        background: white;
       }
     }
 
@@ -449,10 +515,10 @@
 </head>
 
 <body>
-  <div class="top-bar"></div>
-  <div class="page">
+  <div class="sheet">
+    <div class="top-bar"></div>
+    <div class="page">
 
-    <!-- HEADER -->
     <header class="header">
       <img class="avatar" src="avatar.png" alt="魏文翰头像">
       <div>
@@ -466,79 +532,88 @@
     </header>
 
     <div class="body-grid">
-      <!-- MAIN COLUMN -->
       <main class="main-col">
 
-        <!-- 教育经历 -->
-        <section class="section">
-          <div class="section-title">教育经历</div>
+        <div class="compact-grid">
+          <div class="compact-col">
+            <section class="section compact">
+              <div class="section-title">教育经历</div>
 
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
-            <div style="font-size:13px;color:var(--ink);"><strong>北京大学</strong> &nbsp;<span
-                style="color:var(--ink-light);font-size:12px;">建筑与景观设计学院 · 时空智能与智慧城市</span></div>
-            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.69/4
-                &nbsp;Top 10%</span><span class="edu-date">2018.09—2021.07</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
+                <div style="font-size:13px;color:var(--ink);"><strong>北京大学</strong> &nbsp;<span
+                    style="color:var(--ink-light);font-size:12px;">建筑与景观设计学院 · 时空智能与智慧城市</span></div>
+                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.69/4
+                    &nbsp;Top 10%</span><span class="edu-date">2018.09—2021.07</span></div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
+                <div style="font-size:13px;color:var(--ink);"><strong>苏黎世大学</strong> &nbsp;<span
+                    style="color:var(--ink-light);font-size:12px;">数学与科学学院 · 地理学 &amp; 数据科学</span></div>
+                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA
+                    5.52/6</span><span class="edu-date">2020.02—2020.08</span></div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <div style="font-size:13px;color:var(--ink);"><strong>华南理工大学</strong> &nbsp;<span
+                    style="color:var(--ink-light);font-size:12px;">建筑学院 · 城乡规划</span></div>
+                <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.73/4
+                    &nbsp;Top 10%</span><span class="edu-date">2013.09—2018.06</span></div>
+              </div>
+            </section>
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
-            <div style="font-size:13px;color:var(--ink);"><strong>苏黎世大学</strong> &nbsp;<span
-                style="color:var(--ink-light);font-size:12px;">数学与科学学院 · 地理学 &amp; 数据科学</span></div>
-            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA
-                5.52/6</span><span class="edu-date">2020.02—2020.08</span></div>
+          <div class="compact-col">
+            <section class="section compact">
+              <div class="section-title">科研与荣誉</div>
+              <div class="award-item">5 项发明专利，2 项 AI 智能体社区相关；无人机应用方向 4 项，其中 2 项已授权</div>
+              <div class="award-item">发表领域顶刊 SCI 论文 2 篇，《Cities》第一作者；《ERPH》第三作者</div>
+              <div class="award-item">北京大学「冠昊奖学金」一等奖、「科学实践创新」奖学金、国奖等 4 项奖学金</div>
+              <div class="award-item">北京大学优秀毕业生、北京大学「三好学生」、华南理工大学「三好学生」</div>
+            </section>
+
+            <section class="section compact">
+              <div class="section-title">独立开发</div>
+              <div class="award-item">独立开发 Agent KOL 产品，帮助内容创作者拥有自己的 Agent，注册用户突破 100+，项目地址 <a href="https://www.rentkoa.xyz/" target="_blank">https://www.rentkoa.xyz/</a></div>
+              <div class="award-item">独立开发 iOS 抽卡 × Chatbot 自我觉察与心理疗愈产品 Starsay</div>
+              <div class="award-item">参与 Elys、Second Me 两个 Agent 产品的增长营销，帮助两个产品累计获客超 120 人</div>
+            </section>
           </div>
+        </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:baseline;">
-            <div style="font-size:13px;color:var(--ink);"><strong>华南理工大学</strong> &nbsp;<span
-                style="color:var(--ink-light);font-size:12px;">建筑学院 · 城乡规划</span></div>
-            <div style="display:flex;gap:12px;white-space:nowrap;flex-shrink:0;"><span class="edu-gpa">GPA 3.73/4
-                &nbsp;Top 10%</span><span class="edu-date">2013.09—2018.06</span></div>
-          </div>
-
-        </section>
-
-        <!-- 科研与荣誉 -->
-        <section class="section">
-          <div class="section-title">科研与荣誉</div>
-          <div class="award-item">5 项发明专利，2 项 AI 智能体社区相关；无人机应用方向 4 项，其中 2 项已授权</div>
-          <div class="award-item">发表领域顶刊 SCI 论文 2 篇，《Cities》第一作者；《ERPH》第三作者</div>
-          <div class="award-item">北京大学「冠昊奖学金」一等奖、「科学实践创新」奖学金、国奖等 4 项奖学金</div>
-          <div class="award-item">北京大学优秀毕业生、北京大学「三好学生」、华南理工大学「三好学生」</div>
-        </section>
-
-        <!-- 工作经历 -->
         <section class="section">
           <div class="section-title">工作经历</div>
 
-          <!-- Job 0 - 阿里巴巴 -->
           <div class="job">
             <div class="job-header">
               <div>
-                <div class="job-title">【淘宝搜索】-AI</div>
+                <div class="job-title">【淘宝搜索】-AI搜索&Agent</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
-                <span class="job-badge">阿里巴巴</span>
+                <span class="job-badge">淘宝</span>
                 <span class="job-date">2025.06 — 2026.03</span>
               </div>
             </div>
 
-            <div class="sub-title">① AI 商卡内容优化</div>
+            <div class="sub-title">① 搜索结果页AI架构升级</div>
             <ul class="bullet-list">
-              <li>负责搜索结果页（SRP）AI 内容策略优化，主导商卡标题、摘要等核心内容的 AI 生成与联动展示，提升商品信息表达力与点击转化效率</li>
+              <li>优化 query 意图分类体系，覆盖清单、榜单、知识百科、选购攻略等多类意图场景，通过后链路设计、数据构造配合模型微调，持续提升特定场景下体验</li>
+              <li>优化泛知识意图下的内容回复策略，针对不同意图匹配差异化生成链路、内容供给、工具调用，提升搜索结果相关性与用户体验，提升搜索主动 UV</li>
+              <li>负责搜索结果页部分评测工作，并带领评测团队推进专项评测，覆盖 query、意图识别、planning、结果内容与素材质量等核心维度</li>
             </ul>
 
-            <div class="sub-title">② 搜索 C 端体验优化</div>
+            <div class="sub-title">② 搜索结果页交互式体验升级</div>
             <ul class="bullet-list">
-              <li>承担搜索 SRP 端侧产品工作，围绕信息展示效率、结果排布逻辑和交互体验进行系统性优化，提升用户搜索决策效率</li>
+              <li>设计实时意图判断机制，基于用户行为动态触发智能商品卡片生成，通过意图卡片帮助用户完成快速的意图转换和意图收敛，PCTR 超过同位置功能卡，LT7 持续增长</li>
+              <li>独立构建素材优化 Agent，通过对线上样本的定期学习自动迭代 Prompt，建立「数据构造 → 质量评估 → 效果反馈」的优化闭环，搜索 GMV +1%</li>
+              <li>推进 AI 生图能力在主图场景的落地，建立质量提升机制与上线标准，AI 素材个性化 GMV +1%</li>
             </ul>
 
-            <div class="sub-title">③ AI 工具赋能与团队效率提升</div>
+            <div class="sub-title">③ 团队AI效能工具体系建设</div>
             <ul class="bullet-list">
-              <li>持续优化团队 AI 工作流与内部效率工具，构建面向产品和运营团队的 AI 辅助能力，个人主导的 AI 产品日活 <span class="metric">40+</span>，有效提升团队协作与决策效率
-              </li>
+              <li>累计设计并上线 3 款内部 AI 工具，月活用户超 <span class="metric">100+</span> 人，覆盖内容生产、素材优化、prompt 优化、工单处理等产品经理核心场景</li>
             </ul>
           </div>
 
-          <!-- Job 1 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -546,7 +621,7 @@
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
-                <span class="job-date">2025.02 — 2025-05</span>
+                <span class="job-date">2024.12 — 2025.05</span>
               </div>
             </div>
             <div class="job-bg">美团 2025 AI 战略核心项目，打造覆盖全业务线的 Native AI 产品，旨在为每位用户提供个性化生活决策助手，整合美团全域服务能力。</div>
@@ -576,15 +651,14 @@
             </ul>
           </div>
 
-          <!-- Job 2 -->
           <div class="job">
             <div class="job-header">
               <div>
-                <div class="job-title">【外卖生成式搜索】产品负责人</div>
+                <div class="job-title">【外卖生成式搜索】-核心负责人</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
-                <span class="job-date">2024.10 — 2025.03</span>
+                <span class="job-date">2024.10 — 2024.12</span>
               </div>
             </div>
             <div class="job-bg">针对搜索主链路缺乏发现性和激发性的痛点，通过内容融合、生成式推荐重构用户搜索体验闭环，建立从搜前激发到结果页内容承接的全链路体系。</div>
@@ -615,11 +689,10 @@
             </div>
           </div>
 
-          <!-- Job 3 -->
           <div class="job">
             <div class="job-header">
               <div>
-                <div class="job-title">【外卖 AIGC 内容社区】项目主 R</div>
+                <div class="job-title">【外卖 AIGC 内容社区】-核心负责人</div>
               </div>
               <div style="display:flex;gap:8px;align-items:center;">
                 <span class="job-badge">美团</span>
@@ -643,7 +716,6 @@
             </div>
           </div>
 
-          <!-- Job 4 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -661,7 +733,6 @@
             </ul>
           </div>
 
-          <!-- Job 5 -->
           <div class="job">
             <div class="job-header">
               <div>
@@ -672,23 +743,21 @@
                 <span class="job-date">2021.08 — 2023.07</span>
               </div>
             </div>
+            <ul class="bullet-list">
+              <li>负责无人机软硬件产品的体验优化与迭代升级，围绕地面配送协同、用户使用流程等场景持续推进功能完善和产品体验提升</li>
+            </ul>
           </div>
         </section>
 
-        <!-- 个人项目 -->
         <section class="section">
           <div class="section-title">个人项目</div>
           <ul class="bullet-list">
-            <li>参与 Second Me 黑客松，上线 KOL Agent 项目 <a href="https://www.rentkoa.xyz/" target="_blank">https://www.rentkoa.xyz/</a></li>
             <li>运营滑板垂类账号，获赞 <span class="metric">170w+</span>，粉丝 <span class="metric">3w+</span>，垂类账号前 1%</li>
-            <li>运营 AI 资讯类自媒体 PandorAI（小红书、Twitter、Notion），运营 1 个月，小红书粉丝 <span class="metric">2.5k+</span>，获赞 <span
-                class="metric">1.2w+</span></li>
+            <li>运营 AI 资讯类自媒体 PandorAI，小红书粉丝 <span class="metric">3k+</span>，获赞 <span class="metric">1.7w+</span></li>
             <li>AI 领域优质内容作者，少数派专栏作者、人人都是产品经理，单篇文章阅读量 <span class="metric">5w+</span></li>
-            <li>开发 Chrome 插件 AccessChatGPT，帮助亚洲区用户降低 ChatGPT 封号风险，上线 Chrome 商店</li>
           </ul>
         </section>
 
-        <!-- 技能与其他 -->
         <section class="section">
           <div class="section-title">技能与其他</div>
           <div style="display:flex;gap:2.5rem;flex-wrap:wrap;align-items:flex-start;">
@@ -721,11 +790,11 @@
 
       </main>
 
-      <!-- SIDE COLUMN -->
       <aside class="side-col" style="display:none;"></aside>
     </div>
 
-    <footer class="page-footer">Wei Wenhan · wenhanwei.me@gmail.com · 15626475865</footer>
+      <footer class="page-footer">Wei Wenhan · wenhanwei.me@gmail.com · 15626475865</footer>
+    </div>
   </div>
 </body>
 
